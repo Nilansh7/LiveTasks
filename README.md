@@ -1,4 +1,4 @@
-![Alt Text](src/images/Demo.png)
+![Alt Text](src/images/Demoo.png)
 
 ## Task Management Project
 A real-time task management system with AI-powered task suggestions, built using Golang (Gin/Fiber), Next.js (TypeScript), PostgreSQL, and WebSockets.
