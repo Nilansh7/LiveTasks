@@ -1,133 +1,130 @@
-Task Management System
+![Alt Text](src/images/Demo.png)
 
+## Task Management Project
+A real-time task management system with AI-powered task suggestions, built using Golang (Gin/Fiber), Next.js (TypeScript), PostgreSQL, and WebSockets.
+🏆 Built as part of the Full-Stack Rapid Development Challenge (4-hour challenge).
 
-This is a real-time task management system built using Node.js, React.js, and MySQL. It allows users to efficiently create, update, delete, and track their tasks in real-time with a user-friendly interface.
-
-
-Table of Contents
-
-
-Features
-Requirements
-Installation
-Usage
-Contributing
-License
-
-
-Features
-
-
-Real-time Updates: Tasks are updated in real-time using WebSockets.
-User Authentication: Secure login and signup functionality.
-Task Management: Users can create, update, delete, and complete tasks.
-Task Filtering & Search: Users can filter tasks by completion status and search tasks by keywords.
-User Profiles: Users can view and edit their profiles.
-Responsive UI: Fully responsive design, optimized for all screen sizes.
-
-
-Requirements
-
-
-Ensure you have the following installed:
-
-
-Node.js (version 12 or above)
-npm (Node Package Manager)
-MySQL
-
+## Features
+User Authentication – Sign up, log in, and log out
+Task Management – Create, update, and delete tasks
+Task Completion Status – Mark tasks as completed or pending
+Task Filtering & Search – Filter tasks by status and search using keywords
+User Profile – View and edit profile details
+Responsive Design – Optimized for all screen sizes
 
 Installation
+Follow these steps to set up the project:
 
+1. Clone the repository
+   ```bash
+   git clone https://github.com/Nilansh7/LiveTasks.git
+   cd Task_management/Task_management
+    ```
 
+2. Install dependencies
+   ```bash
+   npm install
+   ```
+   
+ 3. Start the backend server
+   ```bash
+   npm start
+   ```
 
 
-Clone the Repository:
+## Approach for Full-Stack Rapid Development Challenge
 
+This challenge requires speed, high agency, and effective AI utilization. The best approach is to prioritize MVP (Minimum Viable Product) while keeping code modular and scalable for future improvements. Below is a structured approach:
 
-git clone https://github.com/your-username/Task_Management_System.git
+1️⃣ Planning 
+Understand Requirements: Identify essential features (Authentication, Task Management, AI Suggestions, Real-time updates).
+## **Tech Stack Decisions:**
 
+- Backend: Golang (Gin for simplicity) + PostgreSQL (fast relational DB)
 
+- Frontend: Next.js (App Router) + Tailwind CSS for rapid UI development
 
+- Real-time Updates: WebSockets with Goroutines
 
+AI Suggestions: OpenAI/Gemini API
 
-Navigate to the Project Directory:
+- Deployment: Backend → Render/Fly.io | Frontend → Vercel
 
+## High-Level Architecture:
 
-cd Task_Management_System
+- Frontend → Next.js (UI + API calls + WebSockets)
 
+- Backend → Golang REST API (Auth, CRUD, WebSockets, AI)
 
+- Database → PostgreSQL (ORM: GORM)
 
+2️⃣ Backend - Golang 
+🔹 Setup Project & Dependencies
 
+- Initialize Go project:
 
-Install Dependencies:
+```bash
+go mod init task-management
+go get github.com/gin-gonic/gin github.com/golang-jwt/jwt/v5 gorm.io/gorm gorm.io/driver/postgres github.com/gorilla/websocket
+```
+Configure Gin and PostgreSQL connection
 
+🔹 User Authentication (JWT)
 
-npm install
+- Implement /auth/register and /auth/login
+Use JWT for session handling
 
+🔹 Task Management API (CRUD)
 
+```bash /tasks/create, /tasks/update, /tasks/delete, /tasks/get```
+Store tasks in PostgreSQL
 
+🔹 WebSockets for Real-Time Updates
 
+- Set up Goroutines and WebSockets (/tasks/ws) for instant task updates
+  
+🔹 AI-Powered Task Breakdown
 
-Usage
+- Integrate OpenAI/Gemini API (/tasks/suggest)
+Input: Task title & description → AI suggests breakdowns
 
+🔹 Deploy Backend to Render/Fly.io
 
+Create a Dockerfile
+Deploy using flyctl or render.yaml
 
+3️⃣ Frontend - Next.js + Tailwind (1.5 Hours)
 
-Start the Backend Server:
+🔹 Project Setup
+Initialize Next.js with Tailwind
 
 
-npm start
+```bash
+npx create-next-app@latest task-management --typescript
+cd task-management
+npm install @mui/material axios jwt-decode
+```
+Configure Tailwind CSS
 
+🔹 Authentication (JWT)
 
+Login & Register pages
+Store JWT in localStorage/sessionStorage
 
+🔹 Task Dashboard (Real-time UI)
 
+Task CRUD UI (Cards with Edit/Delete)
+Real-time WebSockets (Use useEffect to listen for updates)
 
-Start the Frontend Application:
+🔹 AI Task Suggestions
 
+Button: "Generate Task Breakdown" → Calls OpenAI API
+Display AI-recommended breakdown
 
-cd client
-npm start
+🔹 Deploy on Vercel
 
 
+```bash
+vercel
+```
 
-
-
-Access the Application: Open your browser and go to:
-
-
-http://localhost:3000
-
-
-
-
-
-Contributing
-
-
-We welcome contributions! Follow these steps:
-
-
-Fork the repository.
-Create a new branch for your feature or bug fix.
-Implement your changes.
-Test your code.
-Commit and push your changes.
-Create a pull request with a detailed description.
-
-
-License
-
-
-This project is licensed under the MIT License.
-
-
-Acknowledgments
-
-
-Node.js
-React.js
-MySQL
-
-
-If you have any questions or need support, feel free to reach out!
